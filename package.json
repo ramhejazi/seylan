@@ -1,0 +1,27 @@
+{
+    "name": "seylan",
+    "version": "1.0.0",
+    "description": "fast IPTV re-streamer for node.js",
+    "author": "Ram Hejazi",
+    "main": "./src/server",
+    "bin": {
+        "seylan": "./bin/seylan"
+    },
+    "bugs": {
+        "url": "https://github.com/ramhejazi/seylan/issues"
+    },
+    "homepage": "https://github.com/ramhejazi/seylan",
+    "keywords": [
+        "log",
+        "terminal",
+        "spawn"
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "chalk": "^4.1.2",
+        "express": "^4.18.1",
+        "lodash.debounce": "^4.0.8",
+        "repens": "^1.0.0",
+        "tree-kill": "^1.2.2"
+    }
+}

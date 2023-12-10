@@ -1,0 +1,51 @@
+#!/usr/bin/env node
+const pkg = require('../package');
+const chalk = require('chalk');
+const arg = process.argv[2];
+
+const commands_map = {
+    version() {
+        console.log('seylan v' + pkg.version);
+    },
+    help() {
+        const lines = ['seylan v' + pkg.version, pkg.description]
+
+        const commands = {
+            '--version': 'print version',
+            '--help': 'print help',
+        }
+
+        const env_variables = {
+            'SEYLAN_PORT': 'port for seylan server. default is 7777',
+            'SEYLAN_CACHE_INTERVAL': 'interval for stream caching in milliseconds. default is 10000 (10 seconds)',
+            'SEYLAN_PROXY': 'proxy to be used for yt-dlp and ffmpeg'
+        }
+
+        lines.forEach(line => {
+            console.log(line);
+        });
+
+        console.log('\nCommands:' );
+        Object.keys(commands).forEach(cmd => {
+            console.log('   ' + chalk.bold(cmd) + ': ' + commands[cmd] );
+        });
+        console.log('\nEnvironment variables:' );
+        Object.keys(env_variables).forEach(env => {
+            console.log('   ' + chalk.bold(env) + ': ' + env_variables[env] );
+        });
+    }
+};
+
+if (arg && arg.length) {
+    let command = commands_map[arg.slice(2)];
+    if (command) {
+        command();
+        process.exit();
+    } else {
+        console.log(chalk.red(`command ${arg} does not exist.`));
+        commands_map.help();
+        process.exit();
+    }
+}
+
+require('../src/server').start();

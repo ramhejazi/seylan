@@ -1,0 +1,16 @@
+{
+    extends: "eslint:recommended",
+    globals: { 'describe': true, 'it': true  },
+    env: {
+        commonjs: true,
+        node: true,
+        es2021: true,
+    },
+    parserOptions: {
+        ecmaVersion: 13
+    },
+    rules: {
+        indent: ['error', 4],
+        no_param_reassign: 'off'
+    }
+}
