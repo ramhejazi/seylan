@@ -69,7 +69,7 @@ $ mpv --playlist=http://localhost:7777/get_playlist
 
 ### Playing a stream directly
 ```bash
-$ mpv "http://127.0.0.1:7777/stream?url=https://www.youtube.com/watch?v=9Auq9mYxFEE"
+$ mpv "http://127.0.0.1:7777/stream\?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DdQw4w9WgXcQ"
 ```
 
 ## License
