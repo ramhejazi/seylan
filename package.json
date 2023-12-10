@@ -1,7 +1,7 @@
 {
     "name": "seylan",
     "version": "1.0.0",
-    "description": "fast IPTV re-streamer for node.js",
+    "description": "simple stream re-streamer",
     "author": "Ram Hejazi",
     "main": "./src/server",
     "bin": {
