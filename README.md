@@ -52,8 +52,8 @@ playlist on the fly. You can use [https://github.com/iptv-org/iptv](https://gith
 for finding stream links.
 
 ## Caches
-`seylan` creats a file in `$HOME/.cache/seylan` directory for each stream defined in `channels.json` file. 
-As youtube stream formats get expired after several hours it updates the cache by using interval.
+`seylan` creates a file in `$HOME/.cache/seylan` directory for each stream defined in `channels.json` file. 
+As youtube stream formats get expired after several hours it updates the cache by using an interval.
 
 ## Usage
 
