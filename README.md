@@ -10,7 +10,7 @@ an annoying experience, especially on slow networks.
 
 `seylan` tries to facilitate this problem 
 by getting the streams' data and caching the target formats. 
-The program uses `yt-dlp` for getting the available formats and `ffmpeg` for re-streaming.
+The program uses `yt-dlp` for getting the available formats and `ffmpeg` for re-streaming. Seylan supports youtube and twitch streams.
 
 ## Dependencies
 - **`node`**: `seylan` is a node.js program
@@ -42,8 +42,9 @@ The file should be created in `$HOME/.config/seylan/channels.json`.
 ### Example
 ```json
 {
-    "Sky News": "https://www.youtube.com/watch?v=9Auq9mYxFEE",
-    "CNN": "https://16live00.akamaized.net/CNN/index.m3u8"
+    "Youtube Stream": "https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID",
+    "Twitch Stream": "https://www.twitch.tv/CHANNEL_ID",
+    ...
 }
 ```
 
