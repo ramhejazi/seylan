@@ -43,8 +43,7 @@ The file should be created in `$HOME/.config/seylan/channels.json`.
 ```json
 {
     "Youtube Stream": "https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID",
-    "Twitch Stream": "https://www.twitch.tv/CHANNEL_ID",
-    ...
+    "Twitch Stream": "https://www.twitch.tv/CHANNEL_ID"
 }
 ```
 
