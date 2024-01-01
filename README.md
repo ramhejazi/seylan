@@ -84,7 +84,7 @@ $ mpv "http://127.0.0.1:7777/stream\?url=URI_ENCODED_URL"
 One way of running seylan on system startup is creating a systemd unit file. Create a file
 in `$HOME/.config/systemd/user/seylan.service` with following content:
 
-```
+```ini
 [Unit]
 Description=Seylan
 After=network.target
