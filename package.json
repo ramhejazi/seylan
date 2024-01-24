@@ -1,6 +1,6 @@
 {
     "name": "seylan",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "simple stream re-streamer",
     "author": "Ram Hejazi",
     "main": "./src/server",
