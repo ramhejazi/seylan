@@ -13,7 +13,6 @@ const stream_log = repens.spawn('stream');
 
 const PROXY = process.env.SEYLAN_PROXY;
 const PORT = process.env.SEYLAN_PORT || 7777;
-let NETWORKS = [];
 let ITEMS = [];
 let LAST_STREAM;
 
@@ -84,6 +83,9 @@ app.get('/stream', async (req, res) => {
     LAST_STREAM.stderr.on('data', (data) => {
         data = data.toString();
         logger.error(data);
+        if (data.startsWith('Error opening input files')) {
+            cache.remove_stream_cache(url);
+        }
         if (data.startsWith('frame')) {
             logger.info('ffmpeg', data);
         }

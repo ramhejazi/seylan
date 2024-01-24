@@ -2,7 +2,7 @@ const repens = require('repens');
 const { join } = require('path');
 const get_formats = require('./get_formats');
 const { promises: fs } = require('fs');
-const { writeFile, readFile, stat } = fs;
+const { writeFile, readFile, stat, unlink } = fs;
 const YT_URLS = ['www.youtube.com', 'youtube.com', 'youtu.be', 'www.youtu.be'];
 const log_cacher = repens.spawn('cacher');
 
@@ -65,6 +65,20 @@ function __ensure_cache_dir() {
     if (CACHE_DIR) return ensure_dir(CACHE_DIR);
 }
 
+async function remove_stream_cache(url, title) {
+    const logger = log_cacher.spawn(title || url);
+    const hash = get_hash(url);
+    const cache_path = join(CACHE_DIR, hash + '.json');
+    const exists = await file_exists(cache_path);
+    if (exists) {
+        try {
+            await unlink(cache_path); 
+            logger.log(`removed cache file for url`, url);
+        } catch(e) {
+            logger.error(`could not remove cache file`, cache_path);
+        }
+    }
+}
 
 /**
  * Get stream url and cache the result
@@ -143,4 +157,4 @@ async function start(items) {
     await __start_caching_items();
 }
 
-module.exports = { start, get_stream_url };
+module.exports = { start, get_stream_url, remove_stream_cache };
